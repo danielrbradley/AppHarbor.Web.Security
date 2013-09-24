@@ -21,13 +21,13 @@ namespace AuthenticationExample.Web.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult New()
+		public ActionResult Register()
 		{
 			return View();
 		}
 
 		[HttpPost]
-		public ActionResult Create(UserInputModel userInputModel)
+		public ActionResult Register(RegisterModel userInputModel)
 		{
 			if (_repository.GetAll<User>().Any(x => x.Username == userInputModel.Username))
 			{
@@ -50,7 +50,7 @@ namespace AuthenticationExample.Web.Controllers
 				return RedirectToAction("Index", "Home");
 			}
 
-			return View("New", userInputModel);
+			return View(userInputModel);
 		}
 
 		[HttpGet]

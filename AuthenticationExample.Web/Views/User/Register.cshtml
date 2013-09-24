@@ -1,4 +1,4 @@
-﻿@model AuthenticationExample.Web.ViewModels.UserInputModel
+﻿@model AuthenticationExample.Web.ViewModels.RegisterModel
 
 @{
 	ViewBag.Title = "New user";
@@ -6,17 +6,17 @@
 
 <h2>New user</h2>
 
-@using (Html.BeginForm("Create", "User")) {
+@using (Html.BeginForm("Register", "User")) {
 	<fieldset>
 		<p>
 			@Html.LabelFor(x => x.Username)
-			@Html.TextBoxFor(x => x.Username)
+			@Html.EditorFor(x => x.Username)
 			@Html.ValidationMessageFor(x => x.Username)
 		</p>
 
 		<p>
 			@Html.LabelFor(x => x.Password)
-			@Html.PasswordFor(x => x.Password)
+			@Html.EditorFor(x => x.Password)
 			@Html.ValidationMessageFor(x => x.Password)
 		</p>
 

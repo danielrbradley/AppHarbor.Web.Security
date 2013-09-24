@@ -90,14 +90,14 @@
     <Compile Include="PersistenceSupport\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\SessionViewModel.cs" />
-    <Compile Include="ViewModels\UserInputModel.cs" />
+    <Compile Include="ViewModels\RegisterModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Session\New.cshtml" />
     <Content Include="Views\Shared\Site.cshtml" />
-    <Content Include="Views\User\New.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Show.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
