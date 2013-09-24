@@ -1,0 +1,33 @@
+﻿@model AuthenticationExample.Web.ViewModels.StartRegistrationModel
+
+@{
+	ViewBag.Title = "Sign Up";
+}
+
+<h2>Sign Up</h2>
+
+@using (Html.BeginForm("Start", "Registration")) {
+	<fieldset>
+		<p>
+			@Html.LabelFor(x => x.Username)
+			@Html.EditorFor(x => x.Username)
+			@Html.ValidationMessageFor(x => x.Username)
+		</p>
+
+		<p>
+			@Html.LabelFor(x => x.EmailAddress)
+			@Html.EditorFor(x => x.EmailAddress)
+			@Html.ValidationMessageFor(x => x.EmailAddress)
+		</p>
+
+		<p>
+			@Html.LabelFor(x => x.Password)
+			@Html.EditorFor(x => x.Password)
+			@Html.ValidationMessageFor(x => x.Password)
+		</p>
+
+		<p>
+			<button type="submit">Sign up</button>
+		</p>
+	</fieldset>
+}

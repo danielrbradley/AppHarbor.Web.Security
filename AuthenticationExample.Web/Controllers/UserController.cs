@@ -9,6 +9,7 @@ using AuthenticationExample.Web.ViewModels;
 
 namespace AuthenticationExample.Web.Controllers
 {
+	[Authorize]
 	public class UserController : Controller
 	{
 		private readonly IAuthenticator _authenticator;
@@ -21,40 +22,6 @@ namespace AuthenticationExample.Web.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult New()
-		{
-			return View();
-		}
-
-		[HttpPost]
-		public ActionResult Create(UserInputModel userInputModel)
-		{
-			if (_repository.GetAll<User>().Any(x => x.Username == userInputModel.Username))
-			{
-				ModelState.AddModelError("Username", "Username is already in use");
-			}
-
-			if (ModelState.IsValid)
-			{
-				var user = new User
-				{
-					Id = Guid.NewGuid(),
-					Username = userInputModel.Username,
-					Password = Cryptography.Hash(userInputModel.Password),
-				};
-
-				_repository.SaveOrUpdate(user);
-
-				_authenticator.SetCookie(user.Username);
-
-				return RedirectToAction("Index", "Home");
-			}
-
-			return View("New", userInputModel);
-		}
-
-		[HttpGet]
-		[Authorize]
 		public ActionResult Show()
 		{
 			var user = _repository.GetAll<User>().SingleOrDefault(x => x.Username == User.Identity.Name);

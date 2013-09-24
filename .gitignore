@@ -3,3 +3,5 @@
 *.csproj.user
 *.suo
 /packages
+*.log
+*.user
