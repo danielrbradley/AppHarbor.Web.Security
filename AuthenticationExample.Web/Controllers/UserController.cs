@@ -27,9 +27,9 @@ namespace AuthenticationExample.Web.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Register(RegisterModel userInputModel)
+		public ActionResult Register(RegisterModel registerModel)
 		{
-			if (_repository.GetAll<User>().Any(x => x.Username == userInputModel.Username))
+			if (_repository.GetAll<User>().Any(x => x.Username == registerModel.Username))
 			{
 				ModelState.AddModelError("Username", "Username is already in use");
 			}
@@ -39,8 +39,9 @@ namespace AuthenticationExample.Web.Controllers
 				var user = new User
 				{
 					Id = Guid.NewGuid(),
-					Username = userInputModel.Username,
-					Password = Cryptography.Hash(userInputModel.Password),
+					Username = registerModel.Username,
+					EmailAddress = registerModel.EmailAddress,
+					Password = Cryptography.Hash(registerModel.Password),
 				};
 
 				_repository.SaveOrUpdate(user);
@@ -50,7 +51,7 @@ namespace AuthenticationExample.Web.Controllers
 				return RedirectToAction("Index", "Home");
 			}
 
-			return View(userInputModel);
+			return View(registerModel);
 		}
 
 		[HttpGet]

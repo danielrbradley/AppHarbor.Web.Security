@@ -15,6 +15,12 @@
 		</p>
 
 		<p>
+			@Html.LabelFor(x => x.EmailAddress)
+			@Html.EditorFor(x => x.EmailAddress)
+			@Html.ValidationMessageFor(x => x.EmailAddress)
+		</p>
+
+		<p>
 			@Html.LabelFor(x => x.Password)
 			@Html.EditorFor(x => x.Password)
 			@Html.ValidationMessageFor(x => x.Password)
