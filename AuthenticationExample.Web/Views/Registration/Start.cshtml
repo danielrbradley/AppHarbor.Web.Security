@@ -1,12 +1,12 @@
-﻿@model AuthenticationExample.Web.ViewModels.RegisterModel
+﻿@model AuthenticationExample.Web.ViewModels.StartRegistrationModel
 
 @{
-	ViewBag.Title = "New user";
+	ViewBag.Title = "Sign Up";
 }
 
-<h2>New user</h2>
+<h2>Sign Up</h2>
 
-@using (Html.BeginForm("Register", "User")) {
+@using (Html.BeginForm("Start", "Registration")) {
 	<fieldset>
 		<p>
 			@Html.LabelFor(x => x.Username)

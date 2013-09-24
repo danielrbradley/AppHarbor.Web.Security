@@ -1,0 +1,41 @@
+﻿@model AuthenticationExample.Web.ViewModels.CompleteRegistrationModel
+
+@{
+	ViewBag.Title = "Registration - Verify Email Address";
+}
+
+<h2>Verify Email Address</h2>
+<p>In a live application, an email would be sent containing the verification code.</p>
+<p>In this demonstration, the verification code can be found in a file named "RegistrationEmails.log" in the root of the web application.</p>
+
+@using (Html.BeginForm("Complete", "Registration")) {
+	<fieldset>
+		<p>
+			@Html.LabelFor(x => x.Username)
+			@Html.EditorFor(x => x.Username)
+			@Html.ValidationMessageFor(x => x.Username)
+		</p>
+
+		<p>
+			@Html.LabelFor(x => x.EmailAddress)
+			@Html.EditorFor(x => x.EmailAddress)
+			@Html.ValidationMessageFor(x => x.EmailAddress)
+		</p>
+
+		<p>
+			@Html.LabelFor(x => x.Password)
+			@Html.EditorFor(x => x.Password)
+			@Html.ValidationMessageFor(x => x.Password)
+		</p>
+		
+		<p>
+			@Html.LabelFor(x => x.VerificationCode)
+			@Html.EditorFor(x => x.VerificationCode)
+			@Html.ValidationMessageFor(x => x.VerificationCode)
+		</p>
+
+		<p>
+			<button type="submit">Verify Email Address</button>
+		</p>
+	</fieldset>
+}

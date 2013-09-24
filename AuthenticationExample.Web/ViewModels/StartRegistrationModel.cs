@@ -2,7 +2,7 @@
 
 namespace AuthenticationExample.Web.ViewModels
 {
-	public class RegisterModel
+	public class StartRegistrationModel
 	{
 		[Required]
 		[DataType(DataType.Text)]

@@ -8,6 +8,9 @@ using StructureMap;
 
 namespace AuthenticationExample.Web
 {
+	using AuthenticationExample.Web.EmailModels;
+	using AuthenticationExample.Web.EmailSupport;
+
 	public class MvcApplication : System.Web.HttpApplication
 	{
 		public static void RegisterRoutes(RouteCollection routes)
@@ -36,6 +39,8 @@ namespace AuthenticationExample.Web
 					.Use<ConfigFileAuthenticationConfiguration>();
 				x.For<IAuthenticator>()
 					.Use<CookieAuthenticator>();
+				x.For<IEmailer<RegistrationConfirmation>>()
+					.Use<RegistrationEmailer>();
 			});
 
 			AreaRegistration.RegisterAllAreas();
