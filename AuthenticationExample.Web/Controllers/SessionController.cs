@@ -41,7 +41,7 @@ namespace AuthenticationExample.Web.Controllers
 
 			if (ModelState.IsValid)
 			{
-				if (!BCrypt.Net.BCrypt.Verify(sessionViewModel.Password, user.Password))
+				if (!Cryptography.Verify(user.Password, sessionViewModel.Password))
 				{
 					ModelState.AddModelError(string.Empty, errorMessage);
 				}

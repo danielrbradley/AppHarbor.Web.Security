@@ -40,7 +40,7 @@ namespace AuthenticationExample.Web.Controllers
 				{
 					Id = Guid.NewGuid(),
 					Username = userInputModel.Username,
-					Password = HashPassword(userInputModel.Password),
+					Password = Cryptography.Hash(userInputModel.Password),
 				};
 
 				_repository.SaveOrUpdate(user);
@@ -64,12 +64,6 @@ namespace AuthenticationExample.Web.Controllers
 			}
 
 			return View(user);
-		}
-
-		private static string HashPassword(string value)
-		{
-			string salt = BCrypt.Net.BCrypt.GenerateSalt();
-			return BCrypt.Net.BCrypt.HashPassword(value, salt);
 		}
 	}
 }
